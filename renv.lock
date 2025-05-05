@@ -561,6 +561,53 @@
       "Maintainer": "Jeroen Ooms <jeroenooms@gmail.com>",
       "Repository": "RSPM"
     },
+    "cpp11": {
+      "Package": "cpp11",
+      "Version": "0.5.2",
+      "Source": "Repository",
+      "Title": "A C++11 Interface for R's C Interface",
+      "Authors@R": "c( person(\"Davis\", \"Vaughan\", email = \"davis@posit.co\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0003-4777-038X\")), person(\"Jim\",\"Hester\", role = \"aut\", comment = c(ORCID = \"0000-0002-2739-7082\")), person(\"Romain\", \"François\", role = \"aut\", comment = c(ORCID = \"0000-0002-2444-4226\")), person(\"Benjamin\", \"Kietzman\", role = \"ctb\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")) )",
+      "Description": "Provides a header only, C++11 interface to R's C interface.  Compared to other approaches 'cpp11' strives to be safe against long jumps from the C API as well as C++ exceptions, conform to normal R function semantics and supports interaction with 'ALTREP' vectors.",
+      "License": "MIT + file LICENSE",
+      "URL": "https://cpp11.r-lib.org, https://github.com/r-lib/cpp11",
+      "BugReports": "https://github.com/r-lib/cpp11/issues",
+      "Depends": [
+        "R (>= 4.0.0)"
+      ],
+      "Suggests": [
+        "bench",
+        "brio",
+        "callr",
+        "cli",
+        "covr",
+        "decor",
+        "desc",
+        "ggplot2",
+        "glue",
+        "knitr",
+        "lobstr",
+        "mockery",
+        "progress",
+        "rmarkdown",
+        "scales",
+        "Rcpp",
+        "testthat (>= 3.2.0)",
+        "tibble",
+        "utils",
+        "vctrs",
+        "withr"
+      ],
+      "VignetteBuilder": "knitr",
+      "Config/Needs/website": "tidyverse/tidytemplate",
+      "Config/testthat/edition": "3",
+      "Config/Needs/cpp11/cpp_register": "brio, cli, decor, desc, glue, tibble, vctrs",
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.3.2",
+      "NeedsCompilation": "no",
+      "Author": "Davis Vaughan [aut, cre] (<https://orcid.org/0000-0003-4777-038X>), Jim Hester [aut] (<https://orcid.org/0000-0002-2739-7082>), Romain François [aut] (<https://orcid.org/0000-0002-2444-4226>), Benjamin Kietzman [ctb], Posit Software, PBC [cph, fnd]",
+      "Maintainer": "Davis Vaughan <davis@posit.co>",
+      "Repository": "RSPM"
+    },
     "crayon": {
       "Package": "crayon",
       "Version": "1.5.3",
@@ -1233,44 +1280,6 @@
       "Maintainer": "Thomas Lin Pedersen <thomas.pedersen@posit.co>",
       "Repository": "RSPM"
     },
-    "here": {
-      "Package": "here",
-      "Version": "1.0.1",
-      "Source": "Repository",
-      "Title": "A Simpler Way to Find Your Files",
-      "Date": "2020-12-13",
-      "Authors@R": "c(person(given = \"Kirill\", family = \"M\\u00fcller\", role = c(\"aut\", \"cre\"), email = \"krlmlr+r@mailbox.org\", comment = c(ORCID = \"0000-0002-1416-3412\")), person(given = \"Jennifer\", family = \"Bryan\", role = \"ctb\", email = \"jenny@rstudio.com\", comment = c(ORCID = \"0000-0002-6983-2759\")))",
-      "Description": "Constructs paths to your project's files. Declare the relative path of a file within your project with 'i_am()'. Use the 'here()' function as a drop-in replacement for 'file.path()', it will always locate the files relative to your project root.",
-      "License": "MIT + file LICENSE",
-      "URL": "https://here.r-lib.org/, https://github.com/r-lib/here",
-      "BugReports": "https://github.com/r-lib/here/issues",
-      "Imports": [
-        "rprojroot (>= 2.0.2)"
-      ],
-      "Suggests": [
-        "conflicted",
-        "covr",
-        "fs",
-        "knitr",
-        "palmerpenguins",
-        "plyr",
-        "readr",
-        "rlang",
-        "rmarkdown",
-        "testthat",
-        "uuid",
-        "withr"
-      ],
-      "VignetteBuilder": "knitr",
-      "Encoding": "UTF-8",
-      "LazyData": "true",
-      "RoxygenNote": "7.1.1.9000",
-      "Config/testthat/edition": "3",
-      "NeedsCompilation": "no",
-      "Author": "Kirill Müller [aut, cre] (<https://orcid.org/0000-0002-1416-3412>), Jennifer Bryan [ctb] (<https://orcid.org/0000-0002-6983-2759>)",
-      "Maintainer": "Kirill Müller <krlmlr+r@mailbox.org>",
-      "Repository": "RSPM"
-    },
     "highr": {
       "Package": "highr",
       "Version": "0.11",
@@ -1299,41 +1308,6 @@
       "NeedsCompilation": "no",
       "Author": "Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>), Yixuan Qiu [aut], Christopher Gandrud [ctb], Qiang Li [ctb]",
       "Maintainer": "Yihui Xie <xie@yihui.name>",
-      "Repository": "RSPM"
-    },
-    "hms": {
-      "Package": "hms",
-      "Version": "1.1.3",
-      "Source": "Repository",
-      "Title": "Pretty Time of Day",
-      "Date": "2023-03-21",
-      "Authors@R": "c( person(\"Kirill\", \"Müller\", role = c(\"aut\", \"cre\"), email = \"kirill@cynkra.com\", comment = c(ORCID = \"0000-0002-1416-3412\")), person(\"R Consortium\", role = \"fnd\"), person(\"RStudio\", role = \"fnd\") )",
-      "Description": "Implements an S3 class for storing and formatting time-of-day values, based on the 'difftime' class.",
-      "Imports": [
-        "lifecycle",
-        "methods",
-        "pkgconfig",
-        "rlang (>= 1.0.2)",
-        "vctrs (>= 0.3.8)"
-      ],
-      "Suggests": [
-        "crayon",
-        "lubridate",
-        "pillar (>= 1.1.0)",
-        "testthat (>= 3.0.0)"
-      ],
-      "License": "MIT + file LICENSE",
-      "Encoding": "UTF-8",
-      "URL": "https://hms.tidyverse.org/, https://github.com/tidyverse/hms",
-      "BugReports": "https://github.com/tidyverse/hms/issues",
-      "RoxygenNote": "7.2.3",
-      "Config/testthat/edition": "3",
-      "Config/autostyle/scope": "line_breaks",
-      "Config/autostyle/strict": "false",
-      "Config/Needs/website": "tidyverse/tidytemplate",
-      "NeedsCompilation": "no",
-      "Author": "Kirill Müller [aut, cre] (<https://orcid.org/0000-0002-1416-3412>), R Consortium [fnd], RStudio [fnd]",
-      "Maintainer": "Kirill Müller <kirill@cynkra.com>",
       "Repository": "RSPM"
     },
     "htmltools": {
@@ -1451,46 +1425,6 @@
       "NeedsCompilation": "yes",
       "Author": "Joe Cheng [aut], Winston Chang [aut, cre], Posit, PBC fnd [cph], Hector Corrada Bravo [ctb], Jeroen Ooms [ctb], Andrzej Krzemienski [cph] (optional.hpp), libuv project contributors [cph] (libuv library, see src/libuv/AUTHORS file), Joyent, Inc. and other Node contributors [cph] (libuv library, see src/libuv/AUTHORS file; and http-parser library, see src/http-parser/AUTHORS file), Niels Provos [cph] (libuv subcomponent: tree.h), Internet Systems Consortium, Inc. [cph] (libuv subcomponent: inet_pton and inet_ntop, contained in src/libuv/src/inet.c), Alexander Chemeris [cph] (libuv subcomponent: stdint-msvc2008.h (from msinttypes)), Google, Inc. [cph] (libuv subcomponent: pthread-fixes.c), Sony Mobile Communcations AB [cph] (libuv subcomponent: pthread-fixes.c), Berkeley Software Design Inc. [cph] (libuv subcomponent: android-ifaddrs.h, android-ifaddrs.c), Kenneth MacKay [cph] (libuv subcomponent: android-ifaddrs.h, android-ifaddrs.c), Emergya (Cloud4all, FP7/2007-2013, grant agreement no 289016) [cph] (libuv subcomponent: android-ifaddrs.h, android-ifaddrs.c), Steve Reid [aut] (SHA-1 implementation), James Brown [aut] (SHA-1 implementation), Bob Trower [aut] (base64 implementation), Alexander Peslyak [aut] (MD5 implementation), Trantor Standard Systems [cph] (base64 implementation), Igor Sysoev [cph] (http-parser)",
       "Maintainer": "Winston Chang <winston@posit.co>",
-      "Repository": "RSPM"
-    },
-    "httr": {
-      "Package": "httr",
-      "Version": "1.4.7",
-      "Source": "Repository",
-      "Title": "Tools for Working with URLs and HTTP",
-      "Authors@R": "c( person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = c(\"aut\", \"cre\")), person(\"Posit, PBC\", role = c(\"cph\", \"fnd\")) )",
-      "Description": "Useful tools for working with HTTP organised by HTTP verbs (GET(), POST(), etc). Configuration functions make it easy to control additional request components (authenticate(), add_headers() and so on).",
-      "License": "MIT + file LICENSE",
-      "URL": "https://httr.r-lib.org/, https://github.com/r-lib/httr",
-      "BugReports": "https://github.com/r-lib/httr/issues",
-      "Depends": [
-        "R (>= 3.5)"
-      ],
-      "Imports": [
-        "curl (>= 5.0.2)",
-        "jsonlite",
-        "mime",
-        "openssl (>= 0.8)",
-        "R6"
-      ],
-      "Suggests": [
-        "covr",
-        "httpuv",
-        "jpeg",
-        "knitr",
-        "png",
-        "readr",
-        "rmarkdown",
-        "testthat (>= 0.8.0)",
-        "xml2"
-      ],
-      "VignetteBuilder": "knitr",
-      "Config/Needs/website": "tidyverse/tidytemplate",
-      "Encoding": "UTF-8",
-      "RoxygenNote": "7.2.3",
-      "NeedsCompilation": "no",
-      "Author": "Hadley Wickham [aut, cre], Posit, PBC [cph, fnd]",
-      "Maintainer": "Hadley Wickham <hadley@posit.co>",
       "Repository": "RSPM"
     },
     "isoband": {
@@ -2411,64 +2345,6 @@
       "Repository": "RSPM",
       "Encoding": "UTF-8"
     },
-    "prettyunits": {
-      "Package": "prettyunits",
-      "Version": "1.2.0",
-      "Source": "Repository",
-      "Title": "Pretty, Human Readable Formatting of Quantities",
-      "Authors@R": "c( person(\"Gabor\", \"Csardi\", email=\"csardi.gabor@gmail.com\", role=c(\"aut\", \"cre\")), person(\"Bill\", \"Denney\", email=\"wdenney@humanpredictions.com\", role=c(\"ctb\"), comment=c(ORCID=\"0000-0002-5759-428X\")), person(\"Christophe\", \"Regouby\", email=\"christophe.regouby@free.fr\", role=c(\"ctb\")) )",
-      "Description": "Pretty, human readable formatting of quantities. Time intervals: '1337000' -> '15d 11h 23m 20s'. Vague time intervals: '2674000' -> 'about a month ago'. Bytes: '1337' -> '1.34 kB'. Rounding: '99' with 3 significant digits -> '99.0' p-values: '0.00001' -> '<0.0001'. Colors: '#FF0000' -> 'red'. Quantities: '1239437' -> '1.24 M'.",
-      "License": "MIT + file LICENSE",
-      "URL": "https://github.com/r-lib/prettyunits",
-      "BugReports": "https://github.com/r-lib/prettyunits/issues",
-      "Depends": [
-        "R(>= 2.10)"
-      ],
-      "Suggests": [
-        "codetools",
-        "covr",
-        "testthat"
-      ],
-      "RoxygenNote": "7.2.3",
-      "Encoding": "UTF-8",
-      "NeedsCompilation": "no",
-      "Author": "Gabor Csardi [aut, cre], Bill Denney [ctb] (<https://orcid.org/0000-0002-5759-428X>), Christophe Regouby [ctb]",
-      "Maintainer": "Gabor Csardi <csardi.gabor@gmail.com>",
-      "Repository": "RSPM"
-    },
-    "progress": {
-      "Package": "progress",
-      "Version": "1.2.3",
-      "Source": "Repository",
-      "Title": "Terminal Progress Bars",
-      "Authors@R": "c( person(\"Gábor\", \"Csárdi\", , \"csardi.gabor@gmail.com\", role = c(\"aut\", \"cre\")), person(\"Rich\", \"FitzJohn\", role = \"aut\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")) )",
-      "Description": "Configurable Progress bars, they may include percentage, elapsed time, and/or the estimated completion time. They work in terminals, in 'Emacs' 'ESS', 'RStudio', 'Windows' 'Rgui' and the 'macOS' 'R.app'. The package also provides a 'C++' 'API', that works with or without 'Rcpp'.",
-      "License": "MIT + file LICENSE",
-      "URL": "https://github.com/r-lib/progress#readme, http://r-lib.github.io/progress/",
-      "BugReports": "https://github.com/r-lib/progress/issues",
-      "Depends": [
-        "R (>= 3.6)"
-      ],
-      "Imports": [
-        "crayon",
-        "hms",
-        "prettyunits",
-        "R6"
-      ],
-      "Suggests": [
-        "Rcpp",
-        "testthat (>= 3.0.0)",
-        "withr"
-      ],
-      "Config/Needs/website": "tidyverse/tidytemplate",
-      "Config/testthat/edition": "3",
-      "Encoding": "UTF-8",
-      "RoxygenNote": "7.2.3",
-      "NeedsCompilation": "no",
-      "Author": "Gábor Csárdi [aut, cre], Rich FitzJohn [aut], Posit Software, PBC [cph, fnd]",
-      "Maintainer": "Gábor Csárdi <csardi.gabor@gmail.com>",
-      "Repository": "RSPM"
-    },
     "promises": {
       "Package": "promises",
       "Version": "1.3.2",
@@ -2815,38 +2691,6 @@
       "NeedsCompilation": "no",
       "Author": "JJ Allaire [aut], Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>), Christophe Dervieux [aut] (<https://orcid.org/0000-0003-4474-2498>), Jonathan McPherson [aut], Javier Luraschi [aut], Kevin Ushey [aut], Aron Atkins [aut], Hadley Wickham [aut], Joe Cheng [aut], Winston Chang [aut], Richard Iannone [aut] (<https://orcid.org/0000-0003-3925-190X>), Andrew Dunning [ctb] (<https://orcid.org/0000-0003-0464-5036>), Atsushi Yasumoto [ctb, cph] (<https://orcid.org/0000-0002-8335-495X>, Number sections Lua filter), Barret Schloerke [ctb], Carson Sievert [ctb] (<https://orcid.org/0000-0002-4958-2844>), Devon Ryan [ctb] (<https://orcid.org/0000-0002-8549-0971>), Frederik Aust [ctb] (<https://orcid.org/0000-0003-4900-788X>), Jeff Allen [ctb], JooYoung Seo [ctb] (<https://orcid.org/0000-0002-4064-6012>), Malcolm Barrett [ctb], Rob Hyndman [ctb], Romain Lesur [ctb], Roy Storey [ctb], Ruben Arslan [ctb], Sergio Oller [ctb], Posit Software, PBC [cph, fnd], jQuery UI contributors [ctb, cph] (jQuery UI library; authors listed in inst/rmd/h/jqueryui/AUTHORS.txt), Mark Otto [ctb] (Bootstrap library), Jacob Thornton [ctb] (Bootstrap library), Bootstrap contributors [ctb] (Bootstrap library), Twitter, Inc [cph] (Bootstrap library), Alexander Farkas [ctb, cph] (html5shiv library), Scott Jehl [ctb, cph] (Respond.js library), Ivan Sagalaev [ctb, cph] (highlight.js library), Greg Franko [ctb, cph] (tocify library), John MacFarlane [ctb, cph] (Pandoc templates), Google, Inc. [ctb, cph] (ioslides library), Dave Raggett [ctb] (slidy library), W3C [cph] (slidy library), Dave Gandy [ctb, cph] (Font-Awesome), Ben Sperry [ctb] (Ionicons), Drifty [cph] (Ionicons), Aidan Lister [ctb, cph] (jQuery StickyTabs), Benct Philip Jonsson [ctb, cph] (pagebreak Lua filter), Albert Krewinkel [ctb, cph] (pagebreak Lua filter)",
       "Maintainer": "Yihui Xie <xie@yihui.name>",
-      "Repository": "RSPM"
-    },
-    "rprojroot": {
-      "Package": "rprojroot",
-      "Version": "2.0.4",
-      "Source": "Repository",
-      "Title": "Finding Files in Project Subdirectories",
-      "Authors@R": "person(given = \"Kirill\", family = \"M\\u00fcller\", role = c(\"aut\", \"cre\"), email = \"kirill@cynkra.com\", comment = c(ORCID = \"0000-0002-1416-3412\"))",
-      "Description": "Robust, reliable and flexible paths to files below a project root. The 'root' of a project is defined as a directory that matches a certain criterion, e.g., it contains a certain regular file.",
-      "License": "MIT + file LICENSE",
-      "URL": "https://rprojroot.r-lib.org/, https://github.com/r-lib/rprojroot",
-      "BugReports": "https://github.com/r-lib/rprojroot/issues",
-      "Depends": [
-        "R (>= 3.0.0)"
-      ],
-      "Suggests": [
-        "covr",
-        "knitr",
-        "lifecycle",
-        "mockr",
-        "rlang",
-        "rmarkdown",
-        "testthat (>= 3.0.0)",
-        "withr"
-      ],
-      "VignetteBuilder": "knitr",
-      "Config/testthat/edition": "3",
-      "Encoding": "UTF-8",
-      "RoxygenNote": "7.2.3",
-      "NeedsCompilation": "no",
-      "Author": "Kirill Müller [aut, cre] (<https://orcid.org/0000-0002-1416-3412>)",
-      "Maintainer": "Kirill Müller <kirill@cynkra.com>",
       "Repository": "RSPM"
     },
     "rsconnect": {
@@ -3534,46 +3378,6 @@
       "NeedsCompilation": "yes",
       "Author": "Kirill Müller [aut, cre] (<https://orcid.org/0000-0002-1416-3412>), Hadley Wickham [aut], Romain Francois [ctb], Jennifer Bryan [ctb], RStudio [cph, fnd]",
       "Maintainer": "Kirill Müller <kirill@cynkra.com>",
-      "Repository": "RSPM"
-    },
-    "tidygeocoder": {
-      "Package": "tidygeocoder",
-      "Version": "1.0.6",
-      "Source": "Repository",
-      "Type": "Package",
-      "Title": "Geocoding Made Easy",
-      "Authors@R": "c(person(given = \"Jesse\", family = \"Cambon\", role = c(\"aut\", \"cre\"), email = \"jesse.cambon@gmail.com\", comment = c(ORCID = \"0000-0001-6854-1514\")), person(given = \"Diego\", family = \"Hernangómez\", role = \"aut\", email = \"diego.hernangomezherrero@gmail.com\", comment = c(ORCID = \"0000-0001-8457-4658\")), person(given = \"Christopher\", family = \"Belanger\", role = \"aut\", email = \"christopher.a.belanger@gmail.com\", comment = c(ORCID = \"0000-0003-2070-5721\")), person(given = \"Daniel\",  family = \"Possenriede\",  email = \"possenriede+r@gmail.com\",  role = \"aut\",  comment = c(ORCID = \"0000-0002-6738-9845\")), person(given = \"Otto\",  family = \"Hansen\",  email = \"otto@uchicago.edu\",  role = \"ctb\",  comment = c(ORCID = \"0000-0002-4618-5667\")) )",
-      "Description": "An intuitive interface for getting data from geocoding services.",
-      "License": "MIT + file LICENSE",
-      "URL": "https://jessecambon.github.io/tidygeocoder/, https://github.com/jessecambon/tidygeocoder",
-      "BugReports": "https://github.com/jessecambon/tidygeocoder/issues",
-      "Depends": [
-        "R (>= 3.5)"
-      ],
-      "Imports": [
-        "tibble",
-        "dplyr",
-        "httr",
-        "jsonlite",
-        "progress"
-      ],
-      "Suggests": [
-        "knitr",
-        "rmarkdown",
-        "ggplot2",
-        "ggrepel",
-        "maps",
-        "testthat (>= 3.0.2)",
-        "spelling"
-      ],
-      "VignetteBuilder": "knitr",
-      "Encoding": "UTF-8",
-      "LazyData": "true",
-      "RoxygenNote": "7.3.2",
-      "Language": "en-US",
-      "NeedsCompilation": "no",
-      "Author": "Jesse Cambon [aut, cre] (<https://orcid.org/0000-0001-6854-1514>), Diego Hernangómez [aut] (<https://orcid.org/0000-0001-8457-4658>), Christopher Belanger [aut] (<https://orcid.org/0000-0003-2070-5721>), Daniel Possenriede [aut] (<https://orcid.org/0000-0002-6738-9845>), Otto Hansen [ctb] (<https://orcid.org/0000-0002-4618-5667>)",
-      "Maintainer": "Jesse Cambon <jesse.cambon@gmail.com>",
       "Repository": "RSPM"
     },
     "tidyselect": {
