@@ -8,6 +8,8 @@ Here are a few examples from places I’ve lived in or visited:
 
 ### Ranchi, Jharkhand, India (Hometown)
 
+![](previews/ranchi.png)
+
 ### Ames, Iowa, USA (Current Location)
 
 ### London, UK
