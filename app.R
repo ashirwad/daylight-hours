@@ -152,7 +152,7 @@ server <- function(input, output, session) {
     daylight_info_gg() |>
       dplyr::mutate(
         date = lubridate::as_date(date_time),
-        date_long = format(date_time, "%A, %b %d, %Y"),
+        date_long = format(date_time, "%A, %b %d, %Y") |> sub(" 0", " ", x = _),
         sunrise_time_pretty = format(sunrise_time, "%l:%M %p") |> trimws(),
         sunset_time_pretty = format(sunset_time, "%l:%M %p") |> trimws(),
         sunrise_time = format(sunrise_time, "%I:%M %p"),
@@ -172,26 +172,21 @@ server <- function(input, output, session) {
     DT::datatable(
       daylight_info_dt(),
       colnames = c(
-        "Date<br>(ISO 8601)" = "date", "Date (Pretty)" = "date_long",
+        "Date" = "date_long",
         "Sunrise Time" = "sunrise_time_pretty", "Sunset Time" = "sunset_time_pretty",
-        "Length of Day (Hours:Minutes)" = "day_length_pretty"
+        "Daylight Hours (Hrs:Min)" = "day_length_pretty"
       ),
-      filter = "top",
       options = list(
-        dom = "lrtip",
+        dom = "rtip",
         pageLength = 5,
-        order = list(list(1, "asc")),
         columnDefs = list(
           list(orderData = 1, targets = 2),
           list(orderData = 3, targets = 4),
           list(orderData = 5, targets = 6),
           list(orderData = 7, targets = 8),
-          list(visible = FALSE, targets = c(3, 5, 7)),
-          list(searchable = TRUE, targets = 1),
-          list(searchable = FALSE, targets = 2:8)
+          list(visible = FALSE, targets = c(1, 3, 5, 7))
         )
-      ),
-      escape = FALSE
+      )
     )
   })
 
