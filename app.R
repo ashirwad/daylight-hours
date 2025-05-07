@@ -59,6 +59,7 @@ ui <- bslib::page_sidebar(
 
 
 server <- function(input, output, session) {
+  # US center
   map_center <- shiny::reactiveValues(lng = -95.7129, lat = 37.0902)
 
   shiny::observeEvent(input$map_center, {
@@ -95,7 +96,8 @@ server <- function(input, output, session) {
           from = as.Date(paste0(format(Sys.Date(), "%Y"), "-01-01")),
           to = as.Date(paste0(format(Sys.Date(), "%Y"), "-12-31")),
           by = 1
-        ),
+        ) |>
+          as.character(),
         tz = tz()
       ),
       sunrise_time = purrr::map_vec(
@@ -130,7 +132,7 @@ server <- function(input, output, session) {
       dplyr::mutate(
         date_name = c("Shortest day", "Longest day"),
         date_pretty = purrr::map_chr(
-          date_time, ~ verbaliseR::prettify_date(lubridate::as_date(.x))
+          date_time, ~ verbaliseR::prettify_date(.x, uk_or_us = "US")
         ),
         day_length_period = lubridate::as.period(day_length),
         day_length_pretty = sprintf(
@@ -139,7 +141,7 @@ server <- function(input, output, session) {
         sunset_time_pretty = format(sunset_time, "%l:%M %p") |> trimws(),
         vjust = c(0.75, 0.25),
         vjust = dplyr::case_when(
-          sf::st_coordinates(map_center_sf())[2] < 0 ~ 1 - vjust,
+          sf::st_coordinates(map_center_sf())[2] < 0 ~ 1 - vjust, # adjust for southern hemisphere
           .default = vjust
         ),
         hjust = 0.5
@@ -154,7 +156,7 @@ server <- function(input, output, session) {
         sunrise_time_pretty = format(sunrise_time, "%l:%M %p") |> trimws(),
         sunset_time_pretty = format(sunset_time, "%l:%M %p") |> trimws(),
         sunrise_time = format(sunrise_time, "%I:%M %p"),
-        sunset_time = format(sunset_time, "%I:%M %p"),,
+        sunset_time = format(sunset_time, "%I:%M %p"),
         day_length_period = lubridate::as.period(day_length),
         day_length_pretty = sprintf(
           "%d:%02d", day_length_period@hour, day_length_period@minute
@@ -170,7 +172,7 @@ server <- function(input, output, session) {
     DT::datatable(
       daylight_info_dt(),
       colnames = c(
-        "Date<br>(ISO 8601)" = "date", "Date" = "date_long",
+        "Date<br>(ISO 8601)" = "date", "Date (Pretty)" = "date_long",
         "Sunrise Time" = "sunrise_time_pretty", "Sunset Time" = "sunset_time_pretty",
         "Length of Day (Hours:Minutes)" = "day_length_pretty"
       ),
@@ -178,7 +180,7 @@ server <- function(input, output, session) {
       options = list(
         dom = "lrtip",
         pageLength = 5,
-        order = list(list(1, 'asc')),
+        order = list(list(1, "asc")),
         columnDefs = list(
           list(orderData = 1, targets = 2),
           list(orderData = 3, targets = 4),
@@ -196,7 +198,7 @@ server <- function(input, output, session) {
   output$map <- leaflet::renderLeaflet({
     leaflet::leaflet(options = leaflet::leafletOptions(zoomControl = FALSE)) |>
       leaflet::addProviderTiles(leaflet::providers$CartoDB.Positron) |>
-      leaflet::fitBounds(-124.7844079, 24.7433195, -66.9513812, 49.3457868) |>
+      leaflet::fitBounds(-124.7844079, 24.7433195, -66.9513812, 49.3457868) |> # continental US
       leaflet.extras::addSearchOSM(
         options = leaflet.extras::searchOptions(
           collapsed = FALSE,
