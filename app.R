@@ -1,3 +1,5 @@
+options(shiny.usecairo = TRUE)
+
 ui <- bslib::page_sidebar(
   title = "Get sunrise, sunset, and day length for any location on Earth",
   sidebar = bslib::sidebar(
@@ -14,6 +16,8 @@ ui <- bslib::page_sidebar(
           1. **Search** for a location using the map search bar
           2. **Pan & Zoom** (optional) on the map to refine your selection
           3. **Press** the **Run Sun Calculator** button to generate results
+
+          **Note**: The shortest and longest days are calculated based on days that have both sunrise and sunset. Polar regions may experience periods of 24-hour daylight or darkness.
         ")
       )
     ),
@@ -33,7 +37,7 @@ ui <- bslib::page_sidebar(
         ")
       )
     ),
-    width = 350
+    width = 355
   ),
   bslib::layout_column_wrap(
     width = 1 / 2,
@@ -219,7 +223,7 @@ server <- function(input, output, session) {
       ggplot2::labs(
         title = "Daylight Hours Over the Year: Months Progressing Clockwise",
         subtitle = glue::glue(
-          "Maximum daylight is approximately {round(max_daylight / min_daylight, 2)} times greater than the minimum",
+          "Maximum daylight duration is roughly {round(max_daylight / min_daylight, 2)} times longer than the minimum",
           max_daylight = max(daylight_info_ggtext()$day_length),
           min_daylight = min(daylight_info_ggtext()$day_length)
         ),
@@ -243,7 +247,7 @@ server <- function(input, output, session) {
         fill = NA,
         color = "#DDE3E6",
         halign = 0.5,
-        size = 5
+        size = 5.3
       ) +
       ggplot2::theme(
         plot.title = ggtext::element_textbox_simple(
