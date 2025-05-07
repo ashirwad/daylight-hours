@@ -20,6 +20,8 @@ Here are a few examples from places I’ve lived in or visited or are really int
 
 ### Svalbard, Norway
 
+![](previews/svalbard.png)
+
 ## Acknowledgements
 
 Big thanks to [Cara Thompson](https://www.linkedin.com/in/cararthompson/) for the inspiration and for sharing her code, which I used heavily to generate the graphics.
