@@ -26,19 +26,7 @@ ui <- bslib::page_sidebar(
       "run_suncalc", "Run Sun Calculator",
       icon = shiny::icon("sun")
     ),
-    bslib::card(
-      bslib::card_header(
-        shiny::icon("user"), "Author"
-      ),
-      bslib::card_body(
-        shiny::markdown("
-          **Ashirwad Barnwal**
-
-          [<i class='fab fa-linkedin'></i> Connect on LinkedIn](https://www.linkedin.com/in/ashirwad1992)
-        ")
-      )
-    ),
-    width = 355
+    width = 350
   ),
   bslib::layout_column_wrap(
     width = 1 / 2,
@@ -57,7 +45,8 @@ ui <- bslib::page_sidebar(
       shinycssloaders::withSpinner(
         shiny::plotOutput("plot"),
         fill = TRUE
-      )
+      ),
+      full_screen = TRUE
     )
   )
 )
@@ -280,12 +269,12 @@ server <- function(input, output, session) {
       ) +
       ggplot2::theme(
         plot.title = ggtext::element_textbox_simple(
-          size = 22, halign = 0.5,
+          size = 21, halign = 0.5,
           margin = ggplot2::margin(t = 1, b = 0.5, unit = "cm"),
           color = "#fafafa"
         ),
         plot.subtitle = ggtext::element_textbox_simple(
-          size = 18, halign = 0.5,
+          size = 17, halign = 0.5,
           margin = ggplot2::margin(t = 0.5, b = 1.5, unit = "cm"),
           color = "#fafafa"
         ),
