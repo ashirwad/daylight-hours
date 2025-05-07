@@ -4,7 +4,7 @@ When I first moved to Ames, Iowa, one of the things that really surprised me was
 
 Recently, I came across an interesting [visualization](https://github.com/cararthompson/30DayChartChallenge2023?tab=readme-ov-file#day-11---circular----rstats) on LinkedIn by Cara Thompson. It showed daylight hours in Edinburgh in a circular format, and that inspired me to build a small [Shiny App](https://ashirwad-barnwal.shinyapps.io/daylight-hours/) where you can pick any location on Earth and see how daylight hours change throughout the year.
 
-Here are a few examples from places I’ve lived in or visited:
+Here are a few examples from places I’ve lived in or visited or are really interesting:
 
 ### Ranchi, Jharkhand, India (Hometown)
 
@@ -17,6 +17,8 @@ Here are a few examples from places I’ve lived in or visited:
 ### London, UK
 
 ![](previews/london.png)
+
+### Svalbard, Norway
 
 ## Acknowledgements
 
