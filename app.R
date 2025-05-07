@@ -126,30 +126,58 @@ server <- function(input, output, session) {
           dplyr::pull(time)
       ),
       day_length = lubridate::as.duration(sunset_time - sunrise_time)
-    )
+    ) |>
+      dplyr::mutate(
+        day_length_imp = day_length
+      ) |>
+      tidyr::fill(day_length_imp, .direction = "downup") |>
+      dplyr::mutate(
+        day_length = dplyr::case_when(
+          is.na(day_length) &
+            (abs(day_length_imp - lubridate::as.duration(0)) < abs(day_length_imp - lubridate::as.duration(86400))) ~ lubridate::as.duration(0),
+          is.na(day_length) &
+            (abs(day_length_imp - lubridate::as.duration(0)) > abs(day_length_imp - lubridate::as.duration(86400))) ~ lubridate::as.duration(86399),
+          .default = day_length
+        )
+      ) |>
+      dplyr::select(-day_length_imp)
   })
 
   daylight_info_ggtext <- shiny::reactive({
     dplyr::bind_rows(
-      dplyr::slice_min(daylight_info_gg(), day_length, with_ties = FALSE),
-      dplyr::slice_max(daylight_info_gg(), day_length, with_ties = FALSE)
+      dplyr::slice_min(
+        daylight_info_gg() |>
+          dplyr::filter(!day_length %in% c(lubridate::as.duration(0), lubridate::as.duration(86399))),
+        day_length,
+        with_ties = FALSE,
+        n = 2
+      ) |>
+        dplyr::slice_min(date_time),
+      dplyr::slice_max(
+        daylight_info_gg() |>
+          dplyr::filter(!day_length %in% c(lubridate::as.duration(0), lubridate::as.duration(86399))),
+        day_length,
+        with_ties = FALSE,
+        n = 2
+      ) |>
+        dplyr::slice_max(date_time)
     ) |>
       dplyr::mutate(
         date_name = c("Shortest day", "Longest day"),
         date_pretty = purrr::map_chr(
-          date_time, ~ verbaliseR::prettify_date(.x, uk_or_us = "US")
+          date_time, ~ verbaliseR::prettify_date(lubridate::as_date(.x), uk_or_us = "US")
         ),
         day_length_period = lubridate::as.period(day_length),
         day_length_pretty = sprintf(
           "%d:%02d", day_length_period@hour, day_length_period@minute
         ),
         sunset_time_pretty = format(sunset_time, "%l:%M %p") |> trimws(),
-        vjust = c(0.75, 0.25),
+        vjust = c(0.8, 0.2),
         vjust = dplyr::case_when(
           sf::st_coordinates(map_center_sf())[2] < 0 ~ 1 - vjust, # adjust for southern hemisphere
           .default = vjust
         ),
-        hjust = 0.5
+        hjust = 0.15
       )
   })
 
@@ -230,7 +258,7 @@ server <- function(input, output, session) {
         ),
         caption = "Heavily based on Cara Thompson's #30DayChartChallenge visualization<br>Source: github.com/cararthompson/30DayChartChallenge2023"
       ) +
-      ggplot2::ylim(c(-20000, 100000)) +
+      ggplot2::ylim(c(-20000, 110000)) +
       ggplot2::theme_void() +
       ggtext::geom_textbox(
         data = daylight_info_ggtext(),
