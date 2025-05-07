@@ -1,0 +1,12 @@
+name: daylight-hours
+title: daylight-hours
+username: ashirwad-barnwal
+account: ashirwad-barnwal
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14684710
+bundleId: 10243939
+url: https://ashirwad-barnwal.shinyapps.io/daylight-hours/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
