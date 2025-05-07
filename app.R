@@ -1,3 +1,4 @@
+library(Cairo)
 options(shiny.usecairo = TRUE)
 
 ui <- bslib::page_sidebar(
