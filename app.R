@@ -166,7 +166,7 @@ server <- function(input, output, session) {
           sf::st_coordinates(map_center_sf())[2] < 0 ~ 1 - vjust, # adjust for southern hemisphere
           .default = vjust
         ),
-        hjust = 0.15
+        hjust = 0.25
       )
   })
 
@@ -247,7 +247,7 @@ server <- function(input, output, session) {
         ),
         caption = "Heavily based on Cara Thompson's #30DayChartChallenge visualization<br>Source: github.com/cararthompson/30DayChartChallenge2023"
       ) +
-      ggplot2::ylim(c(-20000, 110000)) +
+      ggplot2::ylim(c(-20000, 120000)) +
       ggplot2::theme_void() +
       ggtext::geom_textbox(
         data = daylight_info_ggtext(),
