@@ -5,7 +5,7 @@ account: ashirwad-barnwal
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 14684710
-bundleId: 10243939
+bundleId: 10248780
 url: https://ashirwad-barnwal.shinyapps.io/daylight-hours/
 version: 1
 asMultiple: FALSE
